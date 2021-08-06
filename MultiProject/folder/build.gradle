@@ -1,0 +1,9 @@
+plugins{
+	id 'java-library'
+}
+
+task hi{
+	doLast{
+		println "Hi from $project.name"
+	}
+}

@@ -1,0 +1,2 @@
+com/myfiles/Test.java
+ com.myfiles.Test

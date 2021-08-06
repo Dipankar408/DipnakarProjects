@@ -1,0 +1,39 @@
+apply plugin: "java"
+apply plugin: "war"
+apply plugin: "application"
+apply plugin: 'com.bmuschko.tomcat'
+apply plugin: 'eclipse-wtp'
+repositories{
+	mavenCentral()
+}
+dependencies{
+	testCompile 'junit:junit:4.12' 
+}
+
+
+
+buildscript {
+       repositories {
+             jcenter()
+       }
+       dependencies {
+             classpath 'com.bmuschko:gradle-tomcat-plugin:2.4.1'
+       }
+}
+
+
+dependencies {
+         def tomcatVersion = '8.0.46'
+         tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+         "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
+         "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
+ //        api 'org.apache.commons:commons-math3:3.6.1'
+}
+
+
+tomcat {
+         httpPort = 8080
+         enableSSL = true
+         contextPath = '/WebSite/src/main/webapp'
+}
+mainClassName= 'com.programs.MainClass'
